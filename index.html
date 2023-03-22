@@ -1,18 +1,17 @@
 //
 <!DOCTYPE html>
+<script src="backend.js"></script>
 <html lang="en">
 <head>
     <title>Genxlead URL shortening</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="main">
         <div class="navbar">
             <div class="icon">
                 <h2 class="logo">Genxlead</h2>
             </div>
-
             <div class="menu">
                 <ul>
                     <li><a href="#">HOME</a></li>
@@ -20,12 +19,10 @@
                     <li><a href="#">DESIGN</a></li>
                 </ul>
             </div>
-
             <!-- <div class="search">
                 <input class="srch" type="search" name="" placeholder="Type To text">
                 <a href="#"> <button class="btn">Search</button></a>
             </div> -->
-
         </div> 
         <div class="content">
             <h1>URL  <br><span>Shortening &</span> <br>Encryption</h1>
@@ -36,9 +33,11 @@
 
                 <div class="form">
                     <h2>Enter the URL Here</h2>
-                    <input type="url" name="email" placeholder="Enter URL Here">
-                    <input type="password" name="" placeholder="Enter Password Here">
-                    <button class="btnn"><a href="#">Sumbit</a></button>
+                    <input type="url" name="email" id="url" placeholder="Enter URL Here">
+                    <!-- <input type="password" name="" placeholder="Encrypted URL"> -->
+                    <h4>Encrypted URL</h4>
+                    <p id="display"></p>
+                    <button class="btnn" onclick="myFunction()"><a href="#">Sumbit</a></button>
 
                     <!-- <p class="link">Don't have an account<br> -->
                     <!-- <a href="#">Sign up </a> here</a></p> -->
@@ -51,7 +50,6 @@
                         <a href="#"><ion-icon name="logo-google"></ion-icon></a>
                         <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
                     </div>
-
                 </div>
                     </div>
                 </div>
