@@ -4,17 +4,14 @@ import hashlib
 import sqlite3
 
 # Create a Flask app
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Set up a connection to the database
 conn = sqlite3.connect('urls.db')
 c = conn.cursor()
 
 # Create a table to store the URLs and their shortened versions
-c.execute('''CREATE TABLE IF NOT EXISTS urls
-             (id INTEGER PRIMARY KEY AUTOINCREMENT,
-              original_url TEXT,
-              short_url TEXT)''')
+c.execute('''CREATE TABLE IF NOT EXISTS urls(id INTEGER PRIMARY KEY AUTOINCREMENT,original_url TEXT,short_url TEXT)''')
 conn.commit()
 
 # Define a function to generate the shortened URL
@@ -29,7 +26,7 @@ def get_short_url(url):
 # Define a route for the homepage
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 # Define a route to handle the form submission
 @app.route('/shorten_url', methods=['POST'])
@@ -52,5 +49,5 @@ def shorten_url():
     return render_template('shortened.html', short_url=short_url)
 
 # Run the app
-if _name_ == '_main_':
+if __name__ == '_main_':
     app.run(debug=True)
