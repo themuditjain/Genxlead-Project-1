@@ -29,19 +29,20 @@
                 the original URL to encrypted URL and will also shorten it...</p>
 
                 <button class="cn"><a href="#">JOIN US</a></button>
-
+                
+                <form method="POST" action="/shorten_url">
                 <div class="form">
                     <h2>URL</h2>
                     <input type="url" name="url" id="url" placeholder="Enter URL Here">
                     <!-- <input type="password" name="" placeholder="Encrypted URL"> -->
                     <h4>Encrypted URL</h4>
                     <p id="display"></p>
-                    <button class="btnn" onclick="myFunction()"><a href="#">Sumbit</a></button>
+                    <input type="submit" class="btnn" onclick="myFunction()"><a href="#">Sumbit</a>
 
                     <!-- <p class="link">Don't have an account<br> -->
                     <!-- <a href="#">Sign up </a> here</a></p> -->
                     <!-- <p class="liw">Log in with</p> -->
-                        
+                
                     <div class="icons">
                         <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                         <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
@@ -50,6 +51,7 @@
                         <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
                     </div>
                 </div>
+                </form>
                     </div>
                 </div>
         </div>
