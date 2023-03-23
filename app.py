@@ -73,7 +73,7 @@ def shorten_url():
         c.execute('INSERT INTO urls (original_url, short_url) VALUES (?, ?)', (original_url, short_url))
         conn.commit()
     # Return the shortened URL to the user
-    return render_template('shortened.html', short_url=short_url)
+    return render_template("index.html", short_url=short_url)
 
 # Run the app
 if __name__ == "__main__":
