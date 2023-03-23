@@ -2,43 +2,20 @@
 from flask import Flask, render_template, request, redirect
 import hashlib
 import sqlite3
-# import sys
+import pyshorteners
+
 
 
 # Create a Flask app
 app = Flask(__name__)
 
 # Set up a connection to the database
-conn = sqlite3.connect("urls.db")
+conn = sqlite3.connect("urls.db", check_same_thread=False)
 c = conn.cursor()
 
 # Create a table to store the URLs and their shortened versions
 c.execute('''CREATE TABLE IF NOT EXISTS urls(id INTEGER PRIMARY KEY AUTOINCREMENT,original_url TEXT,short_url TEXT)''')
 conn.commit()
-
-
-
-
-
-
-# url = sys.argv[1]
-
-# @app.route("/shorten_url", methods=["POST"])
-# def api():
-#     url = request.json["url"]
-
-#     # Use the URL in your Python code
-#     result = f'URL: {url}'
-
-#     return result
-
-
-
-
-
-
-
-
 
 
 # Define a function to generate the shortened URL
@@ -53,10 +30,10 @@ def get_short_url(url):
 # Define a route for the homepage
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("form.html")
 
 # Define a route to handle the form submission
-@app.route("/shorten_url", methods=["POST"])
+@app.route("/", methods=["GET","POST"])
 def shorten_url():
     # Get the URL entered by the user
     original_url = request.form["url"]
@@ -73,7 +50,10 @@ def shorten_url():
         c.execute('INSERT INTO urls (original_url, short_url) VALUES (?, ?)', (original_url, short_url))
         conn.commit()
     # Return the shortened URL to the user
-    return render_template("index.html", short_url=short_url)
+    type_tiny = pyshorteners.Shortener()
+    short_url = type_tiny.tinyurl.short(short_url)
+    return "The shortened and encrypted URL:  "+short_url
+    # return short_url
 
 # Run the app
 if __name__ == "__main__":
