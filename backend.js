@@ -1,5 +1,6 @@
 function myFunction() {
     var x = document.getElementById("url").value;
+
     document.getElementById("display").innerHTML = x;
 
 
@@ -10,9 +11,9 @@ function myFunction() {
 
 
 //     const { spawn } = require('child_process');
-// const url = 'https://example.com';
+// const url = x;
 
-// const pythonProcess = spawn('python', ['path/to/python/file.py', url]);
+// const pythonProcess = spawn('python', ['main.py', url]);
 
 // pythonProcess.stdout.on('data', (data) => {
 //   console.log(`Python output: ${data}`);
@@ -32,7 +33,7 @@ function myFunction() {
 
 
 // const axios = require('axios');
-// const url = 'https://example.com';
+// const url = x;
 
 // axios.post('http://localhost:5000/api', {
 //   url: url

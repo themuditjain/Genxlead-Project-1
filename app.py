@@ -9,7 +9,7 @@ import sqlite3
 app = Flask(__name__)
 
 # Set up a connection to the database
-conn = sqlite3.connect('urls.db')
+conn = sqlite3.connect("urls.db")
 c = conn.cursor()
 
 # Create a table to store the URLs and their shortened versions
@@ -23,9 +23,9 @@ conn.commit()
 
 # url = sys.argv[1]
 
-# @app.route('/api', methods=['POST'])
+# @app.route("/shorten_url", methods=["POST"])
 # def api():
-#     url = request.json['url']
+#     url = request.json["url"]
 
 #     # Use the URL in your Python code
 #     result = f'URL: {url}'
@@ -51,15 +51,15 @@ def get_short_url(url):
     return short_url
 
 # Define a route for the homepage
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
 # Define a route to handle the form submission
-@app.route('/shorten_url', methods=['POST'])
+@app.route("/shorten_url", methods=["POST"])
 def shorten_url():
     # Get the URL entered by the user
-    original_url = request.form['url']
+    original_url = request.form["url"]
     # Check if the URL is already in the database
     c.execute('SELECT short_url FROM urls WHERE original_url=?', (original_url,))
     result = c.fetchone()
@@ -76,5 +76,5 @@ def shorten_url():
     return render_template('shortened.html', short_url=short_url)
 
 # Run the app
-if __name__ == '_main_':
+if __name__ == "__main__":
     app.run(debug=True)
