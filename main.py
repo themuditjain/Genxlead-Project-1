@@ -2,6 +2,8 @@
 from flask import Flask, render_template, request, redirect
 import hashlib
 import sqlite3
+# import sys
+
 
 # Create a Flask app
 app = Flask(__name__)
@@ -13,6 +15,31 @@ c = conn.cursor()
 # Create a table to store the URLs and their shortened versions
 c.execute('''CREATE TABLE IF NOT EXISTS urls(id INTEGER PRIMARY KEY AUTOINCREMENT,original_url TEXT,short_url TEXT)''')
 conn.commit()
+
+
+
+
+
+
+# url = sys.argv[1]
+
+# @app.route('/api', methods=['POST'])
+# def api():
+#     url = request.json['url']
+
+#     # Use the URL in your Python code
+#     result = f'URL: {url}'
+
+#     return result
+
+
+
+
+
+
+
+
+
 
 # Define a function to generate the shortened URL
 def get_short_url(url):
